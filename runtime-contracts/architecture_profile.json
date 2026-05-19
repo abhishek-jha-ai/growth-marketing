@@ -1,0 +1,32 @@
+{
+  "blueprint_key": "fullstack_monorepo",
+  "repo_layout": {
+    "label": "Monorepo",
+    "monorepo": true,
+    "packages": [
+      {"name": "apps/web", "kind": "frontend"},
+      {"name": "apps/api", "kind": "backend"},
+      {"name": "packages/shared", "kind": "shared"},
+      {"name": "packages/contracts", "kind": "shared"},
+      {"name": "packages/ui", "kind": "frontend_shared"},
+      {"name": "packages/runtime-types", "kind": "runtime_shared"}
+    ]
+  },
+  "safe_zones": [
+    "apps/web/src",
+    "apps/api/app",
+    "packages/shared",
+    "packages/contracts",
+    "packages/ui",
+    "packages/runtime-types"
+  ],
+  "protected_zones": [
+    "runtime-contracts",
+    "governance"
+  ],
+  "commands": {
+    "frontend_build": "npm -C apps/web run build",
+    "frontend_test": "npm -C apps/web run test",
+    "api_tests": "pytest -q apps/api/tests"
+  }
+}
