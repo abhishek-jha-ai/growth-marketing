@@ -21,7 +21,7 @@
       </CTASection>
     </main>
     <footer class="landing-footer">
-      <span><ContentSlot content-key="apps_web_src_pages.2026_growth_marketing_all_rights" fallback="© 2026 Growth Marketing. All rights reserved." /></span>
+      <span><ContentSlot content-key="apps_web_src_pages.copy_2026_growth_marketing_all" fallback="&copy; 2026 Growth Marketing. All rights reserved." /></span>
     </footer>
   </div>
 </template>
