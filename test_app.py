@@ -70,5 +70,30 @@ class TestAppRuntime(unittest.TestCase):
         # Restore capability
         capability_resolver.capabilities["crm_sync"] = original
 
+    def test_notification_and_analytics_invocation(self):
+        # Patch notification_dispatch and analytics_event_stream to verify invocation
+        calls = {"notification": False, "analytics": False}
+        original_dispatch = capability_resolver.capabilities["notification_dispatch"].dispatch
+        original_send_event = capability_resolver.capabilities["analytics_event_stream"].send_event
+
+        def mock_dispatch(message):
+            calls["notification"] = True
+
+        def mock_send_event(event):
+            calls["analytics"] = True
+
+        capability_resolver.capabilities["notification_dispatch"].dispatch = mock_dispatch
+        capability_resolver.capabilities["analytics_event_stream"].send_event = mock_send_event
+
+        lead_data = {"name": "Notify Test"}
+        response = client.post("/capture-lead", json=lead_data)
+        self.assertEqual(response.status_code, 200)
+        self.assertTrue(calls["notification"])
+        self.assertTrue(calls["analytics"])
+
+        # Restore original methods
+        capability_resolver.capabilities["notification_dispatch"].dispatch = original_dispatch
+        capability_resolver.capabilities["analytics_event_stream"].send_event = original_send_event
+
 if __name__ == '__main__':
     unittest.main()
