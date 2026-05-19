@@ -1,0 +1,62 @@
+/* Landing page styles using brand tokens and spacing */
+
+.landing-container {
+  background-color: var(--surface-background);
+  color: var(--text-primary);
+  padding: var(--space-xl, 2rem);
+  font-family: system-ui, sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.landing-header {
+  text-align: center;
+  margin-bottom: var(--space-lg, 1.5rem);
+}
+
+.landing-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--brand-primary);
+  margin-bottom: var(--space-sm, 0.5rem);
+}
+
+.landing-subtitle {
+  font-size: 1.25rem;
+  color: var(--brand-accent);
+  font-weight: 500;
+}
+
+.hero-section {
+  background: linear-gradient(90deg, var(--brand-primary) 0%, var(--brand-accent) 100%);
+  border-radius: var(--radius-lg, 1rem);
+  padding: var(--space-xl, 2rem);
+  margin-bottom: var(--space-lg, 1.5rem);
+  color: var(--surface-background);
+  box-shadow: 0 4px 24px rgba(0,0,0,0.04);
+}
+
+.hero-content {
+  text-align: center;
+}
+
+.hero-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: var(--space-md, 1rem);
+}
+
+.hero-subtitle {
+  font-size: 1.125rem;
+  font-weight: 400;
+}
+
+.landing-footer {
+  margin-top: auto;
+  text-align: center;
+  padding: var(--space-md, 1rem) 0;
+  color: var(--text-primary);
+  font-size: 0.95rem;
+  opacity: 0.7;
+}
