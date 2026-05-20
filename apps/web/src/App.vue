@@ -1,5 +1,7 @@
 <template>
-  <main>
-    <h1>Landing Page</h1>
-  </main>
+  <LandingPage />
 </template>
+
+<script setup lang="ts">
+import LandingPage from "./pages/LandingPage.vue";
+</script>
